@@ -4,4 +4,8 @@ This is a mock version of Google's Solar API from [Google Maps Platform](https:/
 
 # Build locally
 
-*Coming soon*
+Go in the `solar_api_mock/web` folder and start the development server with the following command:
+
+```shell
+fastapi dev app.py
+```

@@ -3,6 +3,7 @@ from typing import Type
 from pydantic import BaseModel
 
 from solar_api_mock.core import properties
+from solar_api_mock.core.properties.base import SchemaProperties
 
 schemas = {
     "FinancialDetails": """Details of a financial analysis. Some of these details are already stored at higher levels (e.g., out of pocket cost). Total money amounts are over a lifetime period defined by the panel_lifetime_years field in SolarPotential. Note: The out of pocket cost of purchasing the panels is given in the out_of_pocket_cost field in CashPurchaseSavings.""",
@@ -30,7 +31,7 @@ schemas = {
 class SchemaModel(BaseModel):
     name: str
     description: str
-    properties: properties.SchemaProperties
+    properties: SchemaProperties
 
 
 class SchemaBuilder:
@@ -50,9 +51,7 @@ class SchemaBuilder:
             properties=properties_m,
         )
 
-    def _set_properties(
-        self, model: Type[properties.SchemaProperties]
-    ) -> properties.SchemaProperties:
+    def _set_properties(self, model: Type[SchemaProperties]) -> SchemaProperties:
         pass
 
 
