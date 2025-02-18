@@ -14,9 +14,13 @@ class LatLngProperties(SchemaProperties):
 
     longitude: float = Field(
         description="The longitude in degrees. It must be in the range [-180.0, +180.0].",
+        le=180.0,
+        ge=-180.0,
     )
     latitude: float = Field(
         description="The latitude in degrees. It must be in the range [-90.0, +90.0].",
+        le=90.0,
+        ge=-90.0,
     )
 
 
@@ -64,10 +68,16 @@ class DateProperties(SchemaProperties):
 
     month: int = Field(
         description="Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.",
+        ge=0,
+        le=12,
     )
     day: int = Field(
         description="Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.",
+        ge=0,
+        le=31,
     )
     year: int = Field(
         description="Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.",
+        ge=0,
+        le=9999,
     )
